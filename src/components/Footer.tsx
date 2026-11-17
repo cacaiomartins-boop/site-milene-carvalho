@@ -120,11 +120,6 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href={clinic.doctoraliaUrl} target="_blank" rel="noopener noreferrer" className={link}>
-                    Perfil no Doctoralia<span className="sr-only"> (abre em nova aba)</span>
-                  </a>
-                </li>
-                <li>
                   {clinic.street}, {clinic.building}
                   <br />
                   {clinic.district}, {clinic.city}-{clinic.uf}

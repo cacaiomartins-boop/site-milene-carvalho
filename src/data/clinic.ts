@@ -95,6 +95,7 @@ export const mirror = {
     "Eu sei o que quero mudar, mas acabo repetindo os mesmos hábitos.",
     "Moro longe de casa e, às vezes, a saudade pesa mais do que eu admito.",
     "Sinto que preciso dar conta de tudo sem pedir ajuda.",
+    "A vontade que tenho é de sumir.",
     "As brigas no meu relacionamento parecem sempre as mesmas.",
     "Meu corpo ou minha saúde mudaram minha rotina, e minha cabeça também sentiu.",
   ],
@@ -219,7 +220,7 @@ export const topics: Topic[] = [
       { title: "Decidir com consciência", text: "Seja para reconstruir, seja para encerrar, com mais segurança sobre o que você quer." },
     ],
     approach:
-      "Atendo adultos individualmente e também casais. Em casal, o espaço é de escuta para os dois, sem tomar partido. Pergunte pelo WhatsApp como funciona.",
+      "Atendo adultos individualmente e também casais. Em casal, o espaço é de escuta para os dois, de maneira imparcial. Pergunte pelo WhatsApp como funciona.",
     faq: [
       { q: "Vocês atendem casais?", a: "Sim. Também atendo casais e pessoas em processo de separação. Converse comigo pelo WhatsApp para combinarmos o formato." },
       { q: "Dependência emocional também é tratada?", a: "Sim. É um dos temas que acompanho, sempre com acolhimento e sem julgamentos." },
@@ -362,13 +363,13 @@ export const about = {
   title: "Prazer, *eu sou a Milene.*",
   paragraphs: [
     "Sou psicóloga clínica, especialista em Terapia Cognitivo-Comportamental. Atendo adultos que estão passando por sofrimento emocional e procuram uma profissional experiente, ética e acolhedora.",
-    "Tenho experiência clínica em saúde mental, com passagem pelo Hospital Professor Carvalho Luz e pela Migrapsi Clínica de Gestão em Saúde. Também acompanho brasileiros que vivem no exterior e conheço os desafios do processo de imigração.",
+    "Tenho experiência clínica em saúde mental, com passagem pelo Hospital Professor Carvalho Luz e sou sócia diretora da Migrapsi Clínica de Gestão em Saúde. Também acompanho brasileiros que vivem no exterior e conheço os desafios do processo de imigração.",
     "Aqui, o espaço é de cuidado e escuta. Cada pessoa tem a sua história, e o trabalho respeita essas singularidades, com base em psicoterapia baseada em evidências.",
   ],
   facts: [
     { label: "Especialidade", value: "Terapia Cognitivo-Comportamental (TCC)" },
     { label: "Experiência", value: "Hospital Professor Carvalho Luz · Migrapsi Clínica de Gestão em Saúde" }, // TODO: confirmar nomes e períodos
-    { label: "Abordagem", value: "Psicoterapia baseada em evidências" },
+    { label: "Abordagem", value: "Terapia Cognitivo-Comportamental (TCC)\nPsicoterapia baseada em evidências" },
   ],
   button: "Agendar minha primeira sessão",
   sealText: `PSICÓLOGA CLÍNICA · ${clinic.registry} · PRESENCIAL E ONLINE · `,
@@ -435,8 +436,8 @@ export const faq = {
     { q: "A terapia online funciona?", a: "Sim. É um formato reconhecido pelo Conselho Federal de Psicologia e, para muitas pessoas, funciona tão bem quanto o presencial. Você só precisa de um lugar reservado, boa conexão e fones de ouvido." },
     { q: "Meu atendimento é sigiloso?", a: "Sim. O sigilo é um dever ético da profissão. O que é conversado nas sessões fica entre nós." },
     { q: "Quanto custa? Vocês aceitam convênio?", a: "Atendo de forma particular. Os valores e as formas de pagamento são informados pelo WhatsApp, de maneira reservada." },
-    { q: "Preciso estar em crise para começar?", a: "Não. Há quem comece em um momento difícil e há quem procure a terapia para se conhecer melhor, prevenir desgastes ou tomar uma decisão importante." },
-    { q: "O que é a Terapia Cognitivo-Comportamental (TCC)?", a: "É uma abordagem baseada em evidências que investiga a relação entre pensamentos, emoções e comportamentos. O trabalho é estruturado e colaborativo, com objetivos combinados e, às vezes, atividades entre as sessões." },
+    { q: "Preciso estar em crise para começar?", a: "Não. Há quem comece em um momento difícil e há quem procure a terapia para se conhecer melhor, prevenir adoecimento e recaídas ou tomar uma decisão importante." },
+    { q: "O que é a Terapia Cognitivo-Comportamental (TCC)?", a: "É uma abordagem baseada em evidências que investiga a relação entre pensamentos, emoções e comportamentos. O trabalho é estruturado e colaborativo, com objetivos combinados e sessões estruturadas e, às vezes, atividades entre as sessões." },
     { q: "Você atende casais?", a: "Sim. Também atendo casais. Converse comigo pelo WhatsApp para combinarmos o formato." },
     { q: "Moro fora do Brasil. Posso fazer terapia com você?", a: "Sim. Atendo brasileiros no exterior de forma online, conforme as normas do Conselho Federal de Psicologia. Combinamos horários que funcionem no seu fuso." },
     { q: "Onde fica o consultório?", a: "Na Asa Norte, em Brasília, no Ed. Central Park (SCN Quadra 1, Bloco E). Pelo WhatsApp passo todos os detalhes de acesso e estacionamento." },

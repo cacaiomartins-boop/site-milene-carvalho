@@ -73,7 +73,7 @@ export default function About() {
               {about.facts.map((f) => (
                 <div key={f.label} data-reveal-item className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6 lg:grid-cols-1 lg:gap-0 lg:border-t lg:border-bronze/20 lg:py-[clamp(.45rem,1.4svh,.9rem)]">
                   <dt className="text-xs font-medium uppercase tracking-[0.22em] text-bronze-deep">{f.label}</dt>
-                  <dd className="text-text">{f.value}</dd>
+                  <dd className="whitespace-pre-line text-text">{f.value}</dd>
                 </div>
               ))}
               <div data-reveal-item className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6 lg:grid-cols-1 lg:gap-0 lg:border-t lg:border-bronze/20 lg:py-[clamp(.45rem,1.4svh,.9rem)]">

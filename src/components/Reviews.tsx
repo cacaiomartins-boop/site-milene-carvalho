@@ -107,12 +107,9 @@ export default function Reviews() {
             <SplitHeading text={reviewsTitle} className="lg:!text-[clamp(2.1rem,min(4.4vw,7svh),4.25rem)]" />
           </div>
           <div className="lg:col-span-5 lg:justify-self-end">
-            <a
+            <div
               data-badge
               data-reveal
-              href={clinic.doctoraliaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex items-center gap-6 rounded-[1.75rem] border border-bronze/15 bg-cream px-7 py-5"
             >
               <span data-score className="font-display text-[3.25rem] font-medium leading-[0.82] text-ink">
@@ -121,10 +118,10 @@ export default function Reviews() {
               <span className="flex flex-col gap-2">
                 <Stars />
                 <span className="text-[0.9rem] text-text">
-                  {clinic.rating.count} avaliações no Doctoralia →<span className="sr-only"> (abre em nova aba)</span>
+                  {clinic.rating.count} avaliações no Doctoralia
                 </span>
               </span>
-            </a>
+            </div>
           </div>
         </div>
       </div>
