@@ -168,7 +168,7 @@ export default function Hero() {
           .timeline({ scrollTrigger: { trigger: root, start: "top top", end: "bottom top", scrub: 0.6 } })
           .to(portrait, { yPercent: 10, scale: 1.05, ease: "none" }, 0)
           .to([text, cue], { y: -(0.14 * text.offsetHeight), ease: "none" }, 0)
-          .to(cards, { yPercent: (i) => -(38 + 32 * i), ease: "none" }, 0);
+          .to(cards, { yPercent: (i) => -(6 + 5 * i), ease: "none" }, 0);
       });
 
       mm.add(MQ.fine, () => {
@@ -304,24 +304,24 @@ export default function Hero() {
 
           </div>
 
-            <ul className="no-scrollbar -mx-5 mt-10 flex scroll-px-5 snap-x gap-4 overflow-x-auto px-5 pb-4 lg:absolute lg:-bottom-8 lg:-left-6 lg:mx-0 lg:mt-0 lg:block lg:w-[18.5rem] lg:space-y-3 lg:overflow-visible lg:px-0 lg:pb-0 xl:-left-16">
+            <ul className="no-scrollbar -mx-5 mt-10 flex scroll-px-5 snap-x gap-4 overflow-x-auto px-5 pb-4 lg:absolute lg:-bottom-6 lg:-left-4 lg:mx-0 lg:mt-0 lg:block lg:w-[15rem] lg:space-y-2 lg:overflow-visible lg:px-0 lg:pb-0 xl:-left-12">
               {heroCards.map((t, i) => (
                 <li
                   key={t.slug}
                   data-hero-in
                   data-hero-card
-                  className={`w-[17.25rem] shrink-0 snap-start lg:w-full ${i === 1 ? "lg:ml-3 xl:ml-7" : ""} ${i === 2 ? "lg:ml-6 xl:ml-14" : ""}`}
+                  className={`w-[17.25rem] shrink-0 snap-start lg:w-full ${i === 1 ? "lg:ml-2 xl:ml-5" : ""} ${i === 2 ? "lg:ml-4 xl:ml-10" : ""}`}
                 >
                   <Link
                     to={`/terapia/${t.slug}`}
-                    className="flex items-center gap-4 rounded-2xl border border-white/60 bg-ivory/85 p-4 shadow-soft backdrop-blur transition-shadow duration-500 ease-silk hover:shadow-card"
+                    className="flex items-center gap-3 rounded-xl border border-white/60 bg-ivory/85 p-3 shadow-soft lg:gap-2.5 lg:p-2.5 backdrop-blur transition-shadow duration-500 ease-silk hover:shadow-card"
                   >
-                    <span className="grid size-11 shrink-0 place-items-center rounded-full bg-linen text-forest">
-                      <TopicIcon slug={t.slug} className="size-5" />
+                    <span className="grid size-11 shrink-0 place-items-center rounded-full bg-linen text-forest lg:size-9">
+                      <TopicIcon slug={t.slug} className="size-5 lg:size-4" />
                     </span>
                     <span className="leading-tight">
-                      <span className="block font-display text-[1.2rem] font-medium text-ink">{t.label}</span>
-                      <span className="block text-[0.85rem] text-muted">{cardLine[t.slug]}</span>
+                      <span className="block font-display text-[1.2rem] font-medium text-ink lg:text-[1.02rem]">{t.label}</span>
+                      <span className="block text-[0.85rem] text-muted lg:text-[0.74rem]">{cardLine[t.slug]}</span>
                     </span>
                   </Link>
                 </li>
