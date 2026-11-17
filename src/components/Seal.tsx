@@ -62,7 +62,7 @@ export function Seal({ text, className = "" }: { text: string; className?: strin
   );
 
   return (
-    <div ref={ref} data-reveal className={`relative grid aspect-square place-items-center rounded-full bg-ivory/90 shadow-soft backdrop-blur ${className}`}>
+    <div ref={ref} data-reveal className={`grid aspect-square place-items-center rounded-full bg-ivory/90 shadow-soft backdrop-blur ${className}`}>
       <svg viewBox="0 0 200 200" className="absolute inset-0 size-full text-bronze-deep" aria-hidden="true">
         <defs>
           <path id={`seal-${id}`} d="M100,100 m-79,0 a79,79 0 1,1 158,0 a79,79 0 1,1 -158,0" />

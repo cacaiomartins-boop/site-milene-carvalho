@@ -266,7 +266,7 @@ export default function Hero() {
         </div>
 
         {/* Foto */}
-        <div data-hero-stage className="relative mx-auto mt-12 w-full min-w-0 max-w-[30rem] lg:mt-0 lg:ml-auto lg:mr-0 lg:max-w-[min(100%,30rem,calc((100svh-16rem)*0.8))] lg:self-center">
+        <div data-hero-stage className="relative mx-auto mt-12 w-full min-w-0 max-w-[30rem] lg:mt-0 lg:ml-auto lg:mr-0 lg:max-w-[min(100%,30rem,calc((100svh_-_16rem)*0.8))] lg:self-center">
           <div data-hero-portrait className="@container relative aspect-[4/5] [--arc-d:0.75rem] sm:[--arc-d:1.25rem] lg:[--arc-d:1.5rem]">
             <div
               data-hero-in

@@ -7,7 +7,7 @@ import { Rich } from "../motion/rich";
 import { Lotus, lotusReset } from "./Lotus";
 import { MapCard } from "./MapCard";
 import { WhatsAppButton, track } from "./WhatsAppButton";
-import { Reveal } from "./ui";
+import { FitBox, Reveal } from "./ui";
 
 const modes = ["Presencial", "Online", "Ainda não sei"] as const;
 const periods = ["Manhã", "Tarde"] as const;
@@ -19,7 +19,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       role="radio"
       aria-checked={active}
       onClick={onClick}
-      className={`min-h-11 rounded-full border px-4 py-2 text-sm transition-colors duration-500 ease-silk ${
+      className={`min-h-11 rounded-full border px-4 py-2 text-sm lg:min-h-9 lg:py-1 transition-colors duration-500 ease-silk ${
         active ? "border-gold-soft bg-ivory text-forest" : "border-ivory/25 text-ivory/85 hover:border-ivory/60"
       }`}
     >
@@ -95,22 +95,22 @@ export default function Contact() {
   };
 
   return (
-    <section id="contato" ref={ref} className="bg-cream px-2.5 py-16 sm:px-4 sm:py-20 lg:py-24">
+    <section id="contato" ref={ref} className="fit-section bg-cream px-2.5 py-16 sm:px-4 sm:py-20">
       <div data-cta-panel data-theme="dark" className="grain relative overflow-hidden rounded-[2.5rem] bg-forest-deep">
         <div data-cta-glow className="pointer-events-none absolute -right-20 -top-24 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(closest-side,rgba(130,165,130,0.32),transparent)]" />
         <div data-cta-glow className="pointer-events-none absolute -bottom-32 -left-24 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(closest-side,rgba(180,150,100,0.22),transparent)]" />
 
-        <div data-cta-inner className="container-site relative grid gap-14 py-20 sm:py-24 lg:grid-cols-12 lg:items-center lg:gap-10 lg:pb-56 lg:pt-32">
+        <FitBox><div data-cta-inner className="container-site relative grid gap-14 py-20 sm:py-24 lg:grid-cols-12 lg:items-center lg:gap-10 lg:pb-[clamp(7.5rem,27svh,13rem)] lg:pt-[clamp(1.5rem,6svh,5rem)]">
           <div className="lg:col-span-7">
             <div data-cta-lotus className="w-20 text-gold-soft">
               <Lotus base sw={1.5} className="w-full" />
             </div>
-            <h2 className="mt-8 max-w-[14ch] !text-[clamp(2.3rem,4.4vw,4.25rem)] !leading-[1.02]">
+            <h2 className="mt-8 max-w-[14ch] !text-[clamp(2.3rem,4.4vw,4.25rem)] !leading-[1.02] lg:mt-[clamp(1rem,3svh,2rem)] lg:!text-[clamp(2.1rem,min(4.4vw,7svh),4.25rem)]">
               <Rich text={finalCta.title} />
             </h2>
             <Reveal>
-              <p className="mt-6 max-w-[32rem] text-ivory/75">{finalCta.text}</p>
-              <div className="mt-8">
+              <p className="mt-6 max-w-[32rem] text-ivory/75 lg:mt-[clamp(.8rem,2.2svh,1.5rem)]">{finalCta.text}</p>
+              <div className="mt-8 lg:mt-[clamp(1rem,3svh,2rem)]">
                 <WhatsAppButton variant="light" size="lg" message="contato">
                   {finalCta.button}
                 </WhatsAppButton>
@@ -119,10 +119,10 @@ export default function Contact() {
             </Reveal>
           </div>
 
-          <div data-float-avoid className="rounded-[2rem] border border-ivory/15 bg-ivory/10 p-7 backdrop-blur sm:p-9 lg:col-span-5">
+          <div data-float-avoid className="rounded-[2rem] border border-ivory/15 bg-ivory/10 p-7 backdrop-blur sm:p-9 lg:col-span-5 lg:p-[clamp(1.25rem,3.4svh,2.25rem)]">
             <h3 className="text-[clamp(1.75rem,2.4vw,2.25rem)] leading-[1.08]">{finalCta.cardTitle}</h3>
-            <p className="mt-3 text-[1rem] text-ivory/75">{finalCta.cardText}</p>
-            <form onSubmit={submit} noValidate className="mt-6 space-y-5">
+            <p className="mt-3 text-[1rem] text-ivory/75 lg:mt-[clamp(.2rem,.8svh,.75rem)]">{finalCta.cardText}</p>
+            <form onSubmit={submit} noValidate className="mt-6 space-y-5 lg:mt-[clamp(.8rem,2.4svh,1.5rem)] lg:space-y-[clamp(.6rem,1.9svh,1.25rem)]">
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input type="text" name="site" tabIndex={-1} autoComplete="off" />
               </div>
@@ -138,7 +138,7 @@ export default function Contact() {
                   autoComplete="given-name"
                   aria-invalid={!!error}
                   aria-describedby={error ? "nome-erro" : undefined}
-                  className="h-12 w-full rounded-full border border-ivory/20 bg-ivory/10 px-5 text-ivory placeholder:text-ivory/40 focus:border-gold-soft focus:outline-none"
+                  className="h-12 w-full rounded-full border border-ivory/20 bg-ivory/10 px-5 lg:h-11 text-ivory placeholder:text-ivory/40 focus:border-gold-soft focus:outline-none"
                   placeholder="Como posso te chamar?"
                 />
                 {error && (
@@ -147,6 +147,7 @@ export default function Contact() {
                   </p>
                 )}
               </div>
+              <div className="space-y-5 lg:grid lg:grid-cols-[1.4fr_1fr] lg:gap-4 lg:space-y-0">
               <div role="radiogroup" aria-label="Prefiro atendimento">
                 <p className="mb-2 text-sm text-ivory/80">Prefiro atendimento</p>
                 <div className="flex flex-wrap gap-2">
@@ -167,9 +168,10 @@ export default function Contact() {
                   ))}
                 </div>
               </div>
+              </div>
               <button
                 type="submit"
-                className="inline-flex h-14 w-full items-center justify-center gap-3 rounded-full bg-ivory font-medium text-forest shadow-soft transition-colors duration-500 ease-silk hover:bg-white sm:w-auto sm:px-8"
+                className="inline-flex h-14 w-full items-center justify-center gap-3 rounded-full bg-ivory font-medium text-forest shadow-soft lg:h-12 transition-colors duration-500 ease-silk hover:bg-white sm:w-auto sm:px-8"
               >
                 Abrir mensagem no WhatsApp
                 <span className="sr-only"> (abre o WhatsApp em nova aba)</span>
@@ -182,18 +184,18 @@ export default function Contact() {
               </p>
             </form>
           </div>
-        </div>
+          {/* Mapinha no canto */}
+          <Reveal className="relative z-10 px-5 pb-8 sm:px-10 lg:absolute lg:bottom-5 lg:right-12 lg:w-[220px] lg:p-0">
+            <p className="mb-2 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-ivory/70 lg:hidden">
+              {clinic.street} · {clinic.district}
+            </p>
+            <MapCard mini className="w-full" />
+            <p className="mt-2 hidden text-[0.72rem] text-ivory/70 lg:block">
+              {clinic.street} · {clinic.district}
+            </p>
+          </Reveal>
+        </div></FitBox>
 
-        {/* Mapinha no canto */}
-        <Reveal className="relative z-10 px-5 pb-8 sm:px-10 lg:absolute lg:bottom-6 lg:right-6 lg:w-[220px] lg:p-0">
-          <p className="mb-2 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-ivory/70 lg:hidden">
-            {clinic.street} · {clinic.district}
-          </p>
-          <MapCard mini className="w-full" />
-          <p className="mt-2 hidden text-[0.72rem] text-ivory/70 lg:block">
-            {clinic.street} · {clinic.district}
-          </p>
-        </Reveal>
       </div>
     </section>
   );

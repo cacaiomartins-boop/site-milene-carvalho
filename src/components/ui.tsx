@@ -1,4 +1,4 @@
-import { createElement, useRef, type ReactNode, type ElementType } from "react";
+import { createElement, useEffect, useRef, type ReactNode, type ElementType } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, MQ, ScrollTrigger, SplitText } from "../motion/setup";
 import { Rich } from "../motion/rich";
@@ -223,5 +223,72 @@ export function Counter({ to, className = "" }: { to: number; className?: string
     <span ref={ref} className={className}>
       {to.toLocaleString("pt-BR")}
     </span>
+  );
+}
+
+/* ---------- FitBox: encaixa o conteúdo da seção na altura da tela (desktop) ---------- */
+// A seção ganha min-height 100svh e centraliza o conteúdo. Se o conteúdo for mais alto que a tela,
+// ele é reduzido (scale) o mínimo necessário, sem mudar o layout interno (a quebra de linhas é a mesma).
+export function FitBox({ children, min = 0.7, className = "" }: { children: ReactNode; min?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const box = ref.current!;
+    const mq = matchMedia("(min-width: 1024px) and (min-height: 640px)");
+    let timer = 0;
+    let last = "";
+    const chromeHeight = () => {
+      // espaço vertical ao redor do conteúdo (paddings/bordas de todos os ancestrais até a seção)
+      let sum = 0;
+      let el: HTMLElement | null = box.parentElement;
+      while (el) {
+        const cs = getComputedStyle(el);
+        sum += parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom) + parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth);
+        if (el.tagName === "SECTION" || el.tagName === "FOOTER") break;
+        el = el.parentElement;
+      }
+      return sum;
+    };
+    const apply = () => {
+      if (!mq.matches) {
+        box.style.transform = "";
+        box.style.marginBlock = "";
+        last = "";
+        return;
+      }
+      box.style.transform = "";
+      box.style.marginBlock = "";
+      const h = box.offsetHeight;
+      if (!h) return;
+      const avail = window.innerHeight - chromeHeight();
+      const s = Math.max(min, Math.min(1, avail / h));
+      if (s < 0.995) {
+        box.style.transformOrigin = "50% 50%";
+        box.style.transform = `scale(${s.toFixed(4)})`;
+        box.style.marginBlock = `${(-(h * (1 - s)) / 2).toFixed(1)}px`;
+      }
+      const key = `${window.innerWidth}x${window.innerHeight}:${s.toFixed(3)}:${h}`;
+      if (key !== last) {
+        last = key;
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => ScrollTrigger.refresh(), 250);
+      }
+    };
+    apply();
+    document.fonts.ready.then(apply);
+    const ro = new ResizeObserver(apply);
+    ro.observe(box);
+    window.addEventListener("resize", apply);
+    mq.addEventListener("change", apply);
+    return () => {
+      window.clearTimeout(timer);
+      ro.disconnect();
+      window.removeEventListener("resize", apply);
+      mq.removeEventListener("change", apply);
+    };
+  }, [min]);
+  return (
+    <div ref={ref} data-fit-box className={className}>
+      {children}
+    </div>
   );
 }

@@ -165,7 +165,7 @@ export function MapCard({ mini = false, className = "" }: { mini?: boolean; clas
     <div
       ref={ref}
       className={`relative overflow-hidden bg-linen shadow-card ${
-        mini ? "h-40 rounded-[1.25rem] border border-white/60" : "h-[22rem] rounded-[2rem] sm:h-[26rem] lg:h-[28rem]"
+        mini ? "h-40 rounded-[1.25rem] border border-white/60 lg:h-[clamp(6rem,18svh,10rem)]" : "h-[22rem] rounded-[2rem] sm:h-[26rem] lg:h-[clamp(11rem,32svh,28rem)]"
       } ${className}`}
     >
       <div data-map-inner className="absolute inset-0 will-change-transform">

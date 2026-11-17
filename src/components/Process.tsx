@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, MQ, ScrollTrigger } from "../motion/setup";
 import { process as proc } from "../data/clinic";
-import { Eyebrow, Reveal, SplitHeading } from "./ui";
+import { Eyebrow, FitBox, Reveal, SplitHeading } from "./ui";
 import { Lotus, lotusReset } from "./Lotus";
 import { WhatsAppButton } from "./WhatsAppButton";
 
@@ -84,19 +84,19 @@ export default function Process() {
   );
 
   return (
-    <section id="processo" ref={ref} className="relative overflow-clip bg-linen section-pad">
-      <div className="container-site">
+    <section id="processo" ref={ref} className="relative overflow-clip bg-linen section-pad fit-section">
+      <FitBox><div className="container-site">
         <Eyebrow n="04">Como funciona</Eyebrow>
         <div className="mt-2 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <SplitHeading text={proc.title} />
+            <SplitHeading text={proc.title} className="lg:!text-[clamp(2.1rem,min(4.4vw,7svh),4.25rem)]" />
           </div>
           <Reveal className="lg:col-span-5">
             <p className="text-[1.0625rem] text-text">{proc.intro}</p>
           </Reveal>
         </div>
 
-        <div data-trail className="relative mt-16 lg:mt-24">
+        <div data-trail className="relative mt-16 lg:mt-[clamp(1.5rem,7svh,6rem)]">
           {/* linha vertical (mobile) */}
           <span className="absolute bottom-6 left-[1.375rem] top-2 w-px bg-bronze/20 lg:hidden" aria-hidden="true" />
           <span data-vfill className="absolute bottom-6 left-[1.375rem] top-2 w-px bg-bronze lg:hidden" aria-hidden="true" />
@@ -133,13 +133,13 @@ export default function Process() {
           </ol>
         </div>
 
-        <Reveal className="mt-16 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
+        <Reveal className="mt-16 lg:mt-[clamp(1.2rem,5svh,4rem)] flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
           <WhatsAppButton size="lg" message="processo">
             {proc.button}
           </WhatsAppButton>
           <p className="font-display text-[1.3rem] italic text-text">{proc.closing}</p>
         </Reveal>
-      </div>
+      </div></FitBox>
     </section>
   );
 }

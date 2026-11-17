@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, MQ } from "../motion/setup";
 import { about, clinic, waKeyLink } from "../data/clinic";
-import { Counter, Eyebrow, ImageReveal, Reveal, SplitHeading } from "./ui";
+import { Counter, Eyebrow, FitBox, ImageReveal, Reveal, SplitHeading } from "./ui";
 import { GhostLotus } from "./Lotus";
 import { Seal } from "./Seal";
 import { WhatsAppButton } from "./WhatsAppButton";
@@ -27,15 +27,15 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="relative overflow-x-clip section-pad"
+      className="relative overflow-x-clip section-pad fit-section"
       style={{ background: "linear-gradient(180deg, #fbf9f4 0%, #fbf9f4 30%, #f5efe6 100%)" }}
     >
       <GhostLotus className="-left-32 top-10 h-[40rem] w-[50rem]" />
-      <div className="container-site relative">
+      <FitBox><div className="container-site relative">
         <Eyebrow n="03">Quem vai caminhar com você</Eyebrow>
-        <div className="mt-14 grid items-center gap-20 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-14 grid items-center gap-20 lg:mt-[clamp(1.25rem,4svh,3.5rem)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
           {/* Conjunto visual */}
-          <div className="@container relative mx-auto w-full max-w-[30rem] pb-10 lg:mx-0">
+          <div className="@container relative mx-auto w-full max-w-[30rem] pb-10 lg:mx-0 lg:max-w-[min(30rem,calc((100svh_-_14rem)*0.8))]">
             <ImageReveal
               src={clinic.aboutPhoto}
               alt={`${clinic.name}, sorrindo, em seu consultório`}
@@ -44,7 +44,7 @@ export default function About() {
               position="72% 30%"
               className="aspect-[4/5] rounded-t-[50cqw] rounded-b-[2rem] bg-sand shadow-card"
             />
-            <div className="pointer-events-none absolute inset-0 rounded-t-[50cqw] rounded-b-[2rem] ring-1 ring-inset ring-white/25" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-10 top-0 rounded-t-[50cqw] rounded-b-[2rem] ring-1 ring-inset ring-white/25" />
             <Seal text={about.sealText} className="absolute -bottom-2 -left-2 w-[7.5rem] sm:-left-10 sm:w-[10rem]" />
             <div
               ref={statRef}
@@ -62,21 +62,21 @@ export default function About() {
           {/* Texto */}
           <div>
             <SplitHeading text={about.title} className="!mt-0" />
-            <Reveal items className="mt-8 space-y-5 text-[1.0625rem] leading-[1.75]">
+            <Reveal items className="mt-8 space-y-5 text-[1.0625rem] leading-[1.75] lg:mt-[clamp(1rem,3svh,2rem)] lg:space-y-[clamp(.6rem,1.8svh,1.25rem)] lg:text-[clamp(.95rem,2.3svh,1.0625rem)] lg:leading-[1.6]">
               {about.paragraphs.map((p, i) => (
                 <p key={i} data-reveal-item>
                   {p}
                 </p>
               ))}
             </Reveal>
-            <Reveal items stagger={0.1} y={24} className="mt-10 divide-y divide-bronze/20 border-y border-bronze/20">
+            <Reveal items stagger={0.1} y={24} className="mt-10 divide-y divide-bronze/20 border-y border-bronze/20 lg:mt-[clamp(1rem,3.4svh,2.5rem)] lg:grid lg:grid-cols-2 lg:gap-x-8 lg:divide-y-0 lg:border-y-0">
               {about.facts.map((f) => (
-                <div key={f.label} data-reveal-item className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                <div key={f.label} data-reveal-item className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6 lg:grid-cols-1 lg:gap-0 lg:border-t lg:border-bronze/20 lg:py-[clamp(.45rem,1.4svh,.9rem)]">
                   <dt className="text-xs font-medium uppercase tracking-[0.22em] text-bronze-deep">{f.label}</dt>
                   <dd className="text-text">{f.value}</dd>
                 </div>
               ))}
-              <div data-reveal-item className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+              <div data-reveal-item className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6 lg:grid-cols-1 lg:gap-0 lg:border-t lg:border-bronze/20 lg:py-[clamp(.45rem,1.4svh,.9rem)]">
                 <dt className="text-xs font-medium uppercase tracking-[0.22em] text-bronze-deep">Registro profissional</dt>
                 <dd className="text-text">
                   {clinic.registry}{" "}
@@ -91,14 +91,14 @@ export default function About() {
                 </dd>
               </div>
             </Reveal>
-            <Reveal className="mt-10">
-              <WhatsAppButton size="lg" message="sobre">
+            <Reveal className="mt-10 lg:mt-[clamp(1rem,3.4svh,2.5rem)]">
+              <WhatsAppButton size="lg" message="sobre" className="lg:!h-12">
                 {about.button}
               </WhatsAppButton>
             </Reveal>
           </div>
         </div>
-      </div>
+      </div></FitBox>
       <span className="hidden">{waKeyLink("sobre")}</span>
     </section>
   );

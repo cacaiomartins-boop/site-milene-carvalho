@@ -2,7 +2,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { clinic, topics, waTopicLink } from "../data/clinic";
 import { usePageMeta } from "../motion/meta";
 import { Rich } from "../motion/rich";
-import { Eyebrow, Reveal, SplitHeading } from "../components/ui";
+import { Eyebrow, FitBox, Reveal, SplitHeading } from "../components/ui";
 import { GhostLotus, Lotus } from "../components/Lotus";
 import { WhatsAppButton, ArrowIcon } from "../components/WhatsAppButton";
 import { HashLink } from "../components/HashLink";
@@ -23,9 +23,9 @@ export default function TopicPage() {
 
   return (
     <>
-      <section className="relative isolate overflow-clip pb-20 pt-36 sm:pt-44" style={{ background: "linear-gradient(180deg,#f5efe6,#efe6d8)" }}>
+      <section className="fit-section relative isolate overflow-clip pb-20 pt-36 sm:pt-44 lg:!pt-[clamp(5.5rem,13svh,8rem)]" style={{ background: "linear-gradient(180deg,#f5efe6,#efe6d8)" }}>
         <GhostLotus className="-right-[12%] -top-[6%] -z-10 h-[40rem] w-[50rem]" />
-        <div className="container-site">
+        <FitBox><div className="container-site">
           <nav aria-label="Você está em" className="text-sm text-muted">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
@@ -67,11 +67,11 @@ export default function TopicPage() {
               </HashLink>
             </div>
           </Reveal>
-        </div>
+        </div></FitBox>
       </section>
 
-      <section id="reconhecer" className="bg-linen section-pad">
-        <div className="container-site">
+      <section id="reconhecer" className="fit-section bg-linen section-pad">
+        <FitBox><div className="container-site">
           <Eyebrow n="01">Talvez seja com você</Eyebrow>
           <SplitHeading text="Você pode se reconhecer *em algumas destas frases.*" className="max-w-[16ch]" />
           <Reveal as="ul" items stagger={0.1} y={24} className="mt-14 grid gap-5 md:grid-cols-2">
@@ -82,11 +82,11 @@ export default function TopicPage() {
               </li>
             ))}
           </Reveal>
-        </div>
+        </div></FitBox>
       </section>
 
-      <section id="caminhos" className="bg-cream section-pad">
-        <div className="container-site">
+      <section id="caminhos" className="fit-section bg-cream section-pad">
+        <FitBox><div className="container-site">
           <Eyebrow n="02">Como a terapia ajuda</Eyebrow>
           <SplitHeading text="Um caminho *construído com você.*" />
           <Reveal as="ol" items stagger={0.12} className="mt-14 grid gap-8 md:grid-cols-3">
@@ -98,11 +98,11 @@ export default function TopicPage() {
               </li>
             ))}
           </Reveal>
-        </div>
+        </div></FitBox>
       </section>
 
-      <section id={`abordagem-${t.slug}`} data-theme="dark" className="grain dark-glow relative overflow-hidden py-24 sm:py-32">
-        <div className="container-site grid items-center gap-12 lg:grid-cols-12">
+      <section id={`abordagem-${t.slug}`} data-theme="dark" className="fit-section grain dark-glow relative overflow-hidden py-24 sm:py-32">
+        <FitBox><div className="container-site grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <Eyebrow n="03">Como eu trabalho</Eyebrow>
             <Reveal>
@@ -114,11 +114,11 @@ export default function TopicPage() {
           <div className="mx-auto w-[min(60%,14rem)] text-gold-soft lg:col-span-4 lg:w-full lg:max-w-[16rem]">
             <Lotus base sw={1.4} className="w-full" />
           </div>
-        </div>
+        </div></FitBox>
       </section>
 
-      <section id={`duvidas-tema-${t.slug}`} className="bg-linen section-pad">
-        <div className="container-site grid gap-12 lg:grid-cols-12">
+      <section id={`duvidas-tema-${t.slug}`} className="fit-section bg-linen section-pad">
+        <FitBox><div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Eyebrow n="04">Dúvidas</Eyebrow>
             <SplitHeading text="Sobre este tema, *talvez você pergunte…*" />
@@ -128,11 +128,11 @@ export default function TopicPage() {
               <AccordionItem key={i} id={`tf-${i}`} n={i + 1} q={f.q} a={f.a} open={open.includes(i)} onToggle={() => toggle(i)} />
             ))}
           </Reveal>
-        </div>
+        </div></FitBox>
       </section>
 
-      <section id="outros-temas" className="bg-cream section-pad">
-        <div className="container-site">
+      <section id="outros-temas" className="fit-section bg-cream section-pad">
+        <FitBox><div className="container-site">
           <Eyebrow n="05">Outros temas</Eyebrow>
           <SplitHeading text="Outros caminhos *que posso acompanhar.*" />
           <Reveal as="ul" items stagger={0.08} y={24} className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -151,11 +151,11 @@ export default function TopicPage() {
               </li>
             ))}
           </Reveal>
-        </div>
+        </div></FitBox>
       </section>
 
-      <section data-theme="dark" className="grain dark-glow relative overflow-hidden py-24 sm:py-32">
-        <div className="container-site text-center">
+      <section data-theme="dark" className="fit-section grain dark-glow relative overflow-hidden py-24 sm:py-32">
+        <FitBox><div className="container-site text-center">
           <div className="mx-auto w-20 text-gold-soft">
             <Lotus base sw={1.5} className="w-full" />
           </div>
@@ -167,7 +167,7 @@ export default function TopicPage() {
               Enviar uma mensagem
             </WhatsAppButton>
           </div>
-        </div>
+        </div></FitBox>
       </section>
     </>
   );

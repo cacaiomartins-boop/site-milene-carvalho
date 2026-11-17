@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, MQ } from "../motion/setup";
 import { clinic, reviews, reviewsNote, reviewsTitle } from "../data/clinic";
-import { Eyebrow, SplitHeading } from "./ui";
+import { Eyebrow, FitBox, SplitHeading } from "./ui";
 
 function Stars({ className = "" }: { className?: string }) {
   return (
@@ -99,12 +99,12 @@ export default function Reviews() {
   };
 
   return (
-    <section id="avaliacoes" ref={ref} className="relative overflow-clip bg-ivory section-pad">
-      <div className="container-site">
+    <section id="avaliacoes" ref={ref} className="relative overflow-clip bg-ivory section-pad fit-section">
+      <FitBox><div className="container-site">
         <Eyebrow n="06">Acolhimento</Eyebrow>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <SplitHeading text={reviewsTitle} />
+            <SplitHeading text={reviewsTitle} className="lg:!text-[clamp(2.1rem,min(4.4vw,7svh),4.25rem)]" />
           </div>
           <div className="lg:col-span-5 lg:justify-self-end">
             <a
@@ -129,7 +129,7 @@ export default function Reviews() {
         </div>
       </div>
 
-      <div data-marquee data-reveal className="mt-14 overflow-hidden" role="region" aria-label="Avaliações de pacientes">
+      <div data-marquee data-reveal className="mt-14 overflow-hidden lg:mt-[clamp(1.5rem,5svh,3.5rem)]" role="region" aria-label="Avaliações de pacientes">
         <div data-marquee-track className="flex w-max gap-5 pl-5">
           {reviews.map((r, i) => (
             <Card key={`a${i}`} r={r} />
@@ -163,6 +163,6 @@ export default function Reviews() {
           <span aria-hidden="true">{paused ? "Retomar" : "Pausar"}</span>
         </button>
       </div>
-    </section>
+    </FitBox></section>
   );
 }

@@ -7,6 +7,7 @@ import { Rich } from "../motion/rich";
 import { Lotus, lotusReset } from "./Lotus";
 import { HashLink } from "./HashLink";
 import { WhatsAppButton, WhatsAppIcon, ArrowIcon } from "./WhatsAppButton";
+import { FitBox } from "./ui";
 
 export default function Footer() {
   const ref = useRef<HTMLElement>(null);
@@ -67,16 +68,16 @@ export default function Footer() {
   );
 
   const label = "text-xs font-medium uppercase tracking-[0.3em] text-gold-soft";
-  const link = "inline-block py-1.5 text-ivory/80 transition-colors duration-300 hover:text-ivory";
+  const link = "inline-block py-1.5 lg:py-0.5 text-ivory/80 transition-colors duration-300 hover:text-ivory";
   const chars = clinic.name.toUpperCase().split("");
 
   return (
-    <footer ref={ref} className="bg-cream pt-10">
+    <footer ref={ref} className="bg-cream pt-10 lg:pt-4">
       <div data-footer-panel data-theme="dark" className="grain relative overflow-hidden bg-forest-night">
         <div className="pointer-events-none absolute -top-24 right-0 h-[30rem] w-[40rem] rounded-full bg-[radial-gradient(closest-side,rgba(110,150,115,0.25),transparent)]" />
-        <div className="container-site relative pb-8 pt-20 lg:pt-28">
+        <div className="container-site relative pb-8 pt-20 lg:pb-5 lg:pt-[clamp(1.5rem,5svh,5rem)]"><FitBox>
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <p className="max-w-[16ch] font-display text-[clamp(2.2rem,4.4vw,4rem)] font-medium leading-[1.04] text-ivory">
+            <p className="max-w-[16ch] font-display text-[clamp(2.2rem,4.4vw,4rem)] font-medium leading-[1.04] text-ivory lg:text-[clamp(1.8rem,min(4.4vw,6svh),4rem)]">
               <Rich text={clinic.tagline} />
             </p>
             <WhatsAppButton variant="light" size="lg" message="header">
@@ -84,7 +85,7 @@ export default function Footer() {
             </WhatsAppButton>
           </div>
 
-          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:mt-[clamp(1.2rem,4svh,4rem)] lg:grid-cols-4 lg:gap-8">
             <nav aria-label="Rodapé">
               <h2 className={label + " !font-sans"}>Navegação</h2>
               <ul className="mt-4 space-y-1">
@@ -147,7 +148,7 @@ export default function Footer() {
           </div>
 
           {/* Wordmark gigante */}
-          <div data-wordmark className="mt-16 flex items-center justify-center gap-4 text-gold-soft sm:mt-20 sm:gap-8" aria-hidden="true">
+          <div data-wordmark className="mt-16 flex items-center justify-center gap-4 text-gold-soft sm:mt-20 sm:gap-8 lg:mt-[clamp(1rem,3.5svh,4rem)]" aria-hidden="true">
             <span className="hidden flex-1 items-center gap-3 sm:flex">
               <span data-wm-line className="h-px flex-1 origin-left bg-gold-soft/40" />
               <span data-wm-dot className="size-1.5 rounded-full bg-gold-soft" />
@@ -172,9 +173,9 @@ export default function Footer() {
             </span>
           </div>
 
-          <p className="mt-12 rounded-full border border-ivory/15 px-5 py-3 text-center text-sm text-ivory/80">{emergency}</p>
+          <p className="mt-12 rounded-full border border-ivory/15 px-5 py-3 text-center text-sm text-ivory/80 lg:mt-[clamp(.8rem,2.6svh,3rem)] lg:py-2">{emergency}</p>
 
-          <div className="mt-8 flex flex-col gap-4 border-t border-ivory/10 pt-6 text-sm text-ivory/70 lg:flex-row lg:items-center lg:justify-between">
+          <div className="mt-8 flex flex-col gap-4 border-t border-ivory/10 pt-6 lg:mt-[clamp(.6rem,2svh,2rem)] lg:pt-4 text-sm text-ivory/70 lg:flex-row lg:items-center lg:justify-between">
             <p>
               {clinic.name} · {clinic.registry}
             </p>
@@ -200,7 +201,7 @@ export default function Footer() {
               <ArrowIcon className="size-4 -rotate-90" />
             </button>
           </div>
-        </div>
+        </FitBox></div>
       </div>
     </footer>
   );
