@@ -31,6 +31,32 @@ export default function Mirror() {
         lotusReset(lotus);
         gsap.set(list, { y: 0 });
 
+        // ajusta fonte e espaçamento para TUDO caber na janela, sem cortar nada
+        const fit = () => {
+          win.style.removeProperty("--mfs");
+          win.style.removeProperty("--mpad");
+          const text = lines[0].querySelector<HTMLElement>("[data-mirror-text]")!;
+          const fs0 = parseFloat(getComputedStyle(text).fontSize);
+          const pad0 = parseFloat(getComputedStyle(lines[0]).paddingTop);
+          const avail = win.clientHeight;
+          const apply = (f: number) => {
+            win.style.setProperty("--mfs", f + "px");
+            win.style.setProperty("--mpad", Math.max(3, pad0 * (f / fs0)) + "px");
+          };
+          if (list.scrollHeight <= avail + 1) return; // já cabe no tamanho padrão
+          // busca o MAIOR tamanho de letra em que tudo cabe na janela
+          let lo = 16;
+          let hi = fs0;
+          for (let i = 0; i < 8; i++) {
+            const mid = (lo + hi) / 2;
+            apply(mid);
+            if (list.scrollHeight <= avail + 1) lo = mid;
+            else hi = mid;
+          }
+          apply(lo);
+        };
+        fit();
+        ScrollTrigger.addEventListener("refreshInit", fit);
         const maxShift = () => Math.max(0, list.scrollHeight - win.clientHeight);
         const yFor = (el: HTMLElement) => -Math.min(maxShift(), Math.max(0, el.offsetTop - win.clientHeight * 0.32));
 
@@ -69,6 +95,9 @@ export default function Mirror() {
         closing.addEventListener("focusin", onFocus);
         return () => {
           closing.removeEventListener("focusin", onFocus);
+          ScrollTrigger.removeEventListener("refreshInit", fit);
+          win.style.removeProperty("--mfs");
+          win.style.removeProperty("--mpad");
           delete root.dataset.pinned;
         };
       });
@@ -114,7 +143,7 @@ export default function Mirror() {
         <div className="lg:col-span-5">
           <Eyebrow n="01">Talvez seja com você</Eyebrow>
           <SplitHeading text={mirror.title} className="max-w-[14ch]" />
-          <div data-mirror-lotus className="mt-10 w-[min(70%,14rem)] text-bronze lg:w-[min(100%,24rem)]">
+          <div data-mirror-lotus className="mt-10 w-[min(70%,14rem)] text-bronze lg:w-[min(100%,24rem,36svh)]">
             <Lotus base sw={1.6} className="w-full" />
           </div>
         </div>

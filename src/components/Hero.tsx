@@ -202,7 +202,7 @@ export default function Hero() {
     <section
       id="inicio"
       ref={ref}
-      className="relative isolate overflow-clip pb-14 pt-[6.75rem] sm:pt-32 lg:min-h-[100svh]"
+      className="relative isolate overflow-clip pb-14 pt-[6.75rem] sm:pt-32 lg:min-h-[100svh] lg:pb-6 lg:pt-[clamp(5.25rem,14svh,6.5rem)]"
       style={{ background: "linear-gradient(180deg, #f5efe6 0%, #efe6d8 100%)" }}
     >
       <GhostLotus className="-right-[18%] -top-[6%] -z-10 h-[46rem] w-[56rem] lg:-right-[8%]" />
@@ -224,7 +224,7 @@ export default function Hero() {
           <h1
             data-hero-in
             data-hero-title
-            className="mt-7 max-w-[7em] text-[clamp(2.6rem,11.5vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.015em] lg:text-[clamp(2.9rem,min(5.6vw,9svh),5.75rem)] [&_em]:whitespace-nowrap"
+            className="mt-7 max-w-[7em] lg:mt-[clamp(1rem,3svh,1.75rem)] text-[clamp(2.6rem,11.5vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.015em] lg:text-[clamp(2.6rem,min(5.4vw,7.6svh),5.75rem)] [&_em]:whitespace-nowrap"
           >
             <Rich text={hero.title} />
           </h1>
@@ -242,11 +242,11 @@ export default function Hero() {
             <path data-hero-in d="M54 21.8c78-4.6 164-6.2 262-3.2" strokeWidth="1.25" opacity=".5" vectorEffect="non-scaling-stroke" />
           </svg>
 
-          <p data-hero-in data-hero-sub className="mt-8 max-w-[34rem] text-[1.15rem] leading-[1.65] text-text">
+          <p data-hero-in data-hero-sub className="mt-8 max-w-[34rem] text-[1.15rem] leading-[1.65] text-text lg:mt-[clamp(0.9rem,2.6svh,1.5rem)] lg:text-[clamp(1rem,2.5svh,1.15rem)]">
             {hero.subtitle}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5">
+          <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5 lg:mt-[clamp(1rem,3.2svh,1.75rem)]">
             <div data-hero-in data-hero-cta>
               <WhatsAppButton size="lg" icon="arrow" message="general">
                 {hero.primary}
@@ -259,14 +259,14 @@ export default function Hero() {
             </div>
           </div>
 
-          <div data-hero-in data-hero-cta className="mt-8 text-[0.9375rem] text-muted">
+          <div data-hero-in data-hero-cta className="mt-8 text-[0.9375rem] text-muted lg:mt-[clamp(0.9rem,2.6svh,1.5rem)]">
             <p>{hero.credential}</p>
             <p>{hero.modality}</p>
           </div>
         </div>
 
         {/* Foto */}
-        <div data-hero-stage className="relative mx-auto mt-12 w-full min-w-0 max-w-[30rem] lg:mt-0 lg:ml-auto lg:mr-0 lg:max-w-[min(100%,30rem,calc((100svh-13rem)*0.8))] lg:self-center">
+        <div data-hero-stage className="relative mx-auto mt-12 w-full min-w-0 max-w-[30rem] lg:mt-0 lg:ml-auto lg:mr-0 lg:max-w-[min(100%,30rem,calc((100svh-16rem)*0.8))] lg:self-center">
           <div data-hero-portrait className="@container relative aspect-[4/5] [--arc-d:0.75rem] sm:[--arc-d:1.25rem] lg:[--arc-d:1.5rem]">
             <div
               data-hero-in
@@ -330,7 +330,7 @@ export default function Hero() {
         </div>
 
         {/* Cue de rolagem */}
-        <div data-hero-cue className="mt-24 hidden items-center gap-4 text-bronze lg:flex lg:pb-2 lg:pt-6">
+        <div data-hero-cue className="hidden items-center gap-4 text-bronze lg:mt-2 lg:flex lg:pb-0 lg:pt-4">
           <span data-hero-in data-hero-cueline className="h-12 w-px bg-current opacity-50" />
           <span data-hero-in className="grid size-8 place-items-center rounded-full border border-current/40">
             <svg data-cue-arrow viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

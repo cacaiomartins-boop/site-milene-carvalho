@@ -84,7 +84,7 @@ export default function Manifesto() {
   return (
     <section id="manifesto" ref={ref} data-theme="dark" className="relative bg-forest-deep">
       <div data-manifesto-block className="grain dark-glow relative overflow-hidden">
-        <div className="container-site relative py-24 sm:py-32 lg:py-44">
+        <div className="container-site relative py-24 sm:py-32 lg:py-[clamp(4rem,13svh,11rem)]">
           <div className="flex items-center gap-6 text-gold-soft">
             <h2 data-manifesto-label className="!font-sans !text-xs font-medium uppercase tracking-[0.32em] !text-gold-soft">
               Manifesto
@@ -95,11 +95,11 @@ export default function Manifesto() {
             </span>
           </div>
 
-          <div className="mt-14 grid gap-14 lg:grid-cols-12 lg:items-center">
+          <div className="mt-14 grid gap-14 lg:mt-[clamp(2rem,6svh,3.5rem)] lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-8">
               <p
                 data-manifesto-text
-                className="font-display text-[clamp(2rem,4.6vw,4.25rem)] font-medium leading-[1.08] text-ivory"
+                className="font-display text-[clamp(2rem,4.6vw,4.25rem)] font-medium leading-[1.08] text-ivory lg:text-[clamp(2rem,min(4.6vw,7.4svh),4.25rem)]"
               >
                 {manifesto.sentence}
               </p>
