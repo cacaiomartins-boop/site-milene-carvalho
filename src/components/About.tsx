@@ -45,7 +45,7 @@ export default function About() {
               className="aspect-[4/5] rounded-t-[50cqw] rounded-b-[2rem] bg-sand shadow-card"
             />
             <div className="pointer-events-none absolute inset-0 rounded-t-[50cqw] rounded-b-[2rem] ring-1 ring-inset ring-white/25" />
-            <Seal text={about.sealText} className="absolute -bottom-2 -left-6 w-[8.5rem] sm:-left-10 sm:w-[10rem]" />
+            <Seal text={about.sealText} className="absolute -bottom-2 -left-2 w-[7.5rem] sm:-left-10 sm:w-[10rem]" />
             <div
               ref={statRef}
               data-reveal
@@ -84,7 +84,7 @@ export default function About() {
                     href={clinic.registryVerifyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="u-link ml-2 text-forest"
+                    className="u-link ml-2 inline-block py-2 text-forest"
                   >
                     Verificar no Cadastro Nacional<span className="sr-only"> (abre em nova aba)</span>
                   </a>

@@ -212,7 +212,7 @@ export function MapCard({ mini = false, className = "" }: { mini?: boolean; clas
           onClick={() => setActive(true)}
           disabled={active}
           className={`absolute z-10 flex items-center gap-2 rounded-full bg-ivory/80 text-ink shadow-soft backdrop-blur ${
-            mini ? "bottom-2 left-2 px-3 py-1.5 text-[0.7rem]" : "bottom-4 left-4 px-4 py-2.5 text-sm"
+            mini ? "bottom-2 left-2 px-3 py-2 text-[0.7rem]" : "bottom-4 left-4 px-4 py-2.5 text-sm"
           }`}
         >
           <svg viewBox="0 0 24 24" className={`${mini ? "size-3.5" : "size-4"} ${active ? "animate-pulse" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -223,10 +223,10 @@ export function MapCard({ mini = false, className = "" }: { mini?: boolean; clas
       )}
       {mini && (
         <div className="absolute bottom-2 right-2 z-10 flex gap-2 text-[0.7rem] font-medium">
-          <a href={mapDirectionsUrl} target="_blank" rel="noopener noreferrer" className="rounded-full bg-forest px-2.5 py-1 text-ivory">
+          <a href={mapDirectionsUrl} target="_blank" rel="noopener noreferrer" className="rounded-full bg-forest px-3 py-2 text-ivory">
             Como chegar<span className="sr-only"> (abre em nova aba)</span>
           </a>
-          <a href={wazeUrl} target="_blank" rel="noopener noreferrer" className="rounded-full bg-ivory/90 px-2.5 py-1 text-forest">
+          <a href={wazeUrl} target="_blank" rel="noopener noreferrer" className="rounded-full bg-ivory/90 px-3 py-2 text-forest">
             Waze<span className="sr-only"> (abre em nova aba)</span>
           </a>
         </div>

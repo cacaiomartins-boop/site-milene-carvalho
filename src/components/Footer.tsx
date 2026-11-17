@@ -67,7 +67,7 @@ export default function Footer() {
   );
 
   const label = "text-xs font-medium uppercase tracking-[0.3em] text-gold-soft";
-  const link = "text-ivory/80 transition-colors duration-300 hover:text-ivory";
+  const link = "inline-block py-1.5 text-ivory/80 transition-colors duration-300 hover:text-ivory";
   const chars = clinic.name.toUpperCase().split("");
 
   return (
@@ -87,7 +87,7 @@ export default function Footer() {
           <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
             <nav aria-label="Rodapé">
               <h2 className={label + " !font-sans"}>Navegação</h2>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-4 space-y-1">
                 {nav.map((n) => (
                   <li key={n.label}>
                     <HashLink to={n.href} className={link}>
@@ -99,7 +99,7 @@ export default function Footer() {
             </nav>
             <div>
               <h2 className={label + " !font-sans"}>Temas</h2>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-4 space-y-1">
                 {footerTopics.map((t) => (
                   <li key={t.slug}>
                     <Link to={`/terapia/${t.slug}`} className={link}>
@@ -111,7 +111,7 @@ export default function Footer() {
             </div>
             <div>
               <h2 className={label + " !font-sans"}>Contato</h2>
-              <ul className="mt-5 space-y-3 text-ivory/80">
+              <ul className="mt-4 space-y-1 text-ivory/80">
                 <li>
                   <a href={`https://wa.me/${clinic.whatsapp}`} target="_blank" rel="noopener noreferrer" className={`${link} inline-flex items-center gap-2`}>
                     <WhatsAppIcon className="size-4" /> {clinic.whatsappDisplay}
@@ -127,7 +127,7 @@ export default function Footer() {
                   {clinic.street}, {clinic.building}
                   <br />
                   {clinic.district}, {clinic.city}-{clinic.uf}
-                  <a href={mapDirectionsUrl} target="_blank" rel="noopener noreferrer" className={`${link} mt-1 flex items-center gap-1`}>
+                  <a href={mapDirectionsUrl} target="_blank" rel="noopener noreferrer" className={`${link} mt-1 !flex w-fit items-center gap-1`}>
                     Como chegar <ArrowIcon className="size-4" />
                     <span className="sr-only"> (abre em nova aba)</span>
                   </a>
@@ -137,7 +137,7 @@ export default function Footer() {
             </div>
             <div>
               <h2 className={label + " !font-sans"}>Atendimento</h2>
-              <ul className="mt-5 space-y-3 text-ivory/80">
+              <ul className="mt-4 space-y-1 text-ivory/80">
                 <li>Presencial em Brasília</li>
                 <li>Online para todo o Brasil</li>
                 <li>Online para brasileiros no exterior</li>
@@ -147,16 +147,16 @@ export default function Footer() {
           </div>
 
           {/* Wordmark gigante */}
-          <div data-wordmark className="mt-20 flex items-center gap-4 text-gold-soft sm:gap-8" aria-hidden="true">
-            <span className="flex flex-1 items-center gap-3">
+          <div data-wordmark className="mt-16 flex items-center justify-center gap-4 text-gold-soft sm:mt-20 sm:gap-8" aria-hidden="true">
+            <span className="hidden flex-1 items-center gap-3 sm:flex">
               <span data-wm-line className="h-px flex-1 origin-left bg-gold-soft/40" />
               <span data-wm-dot className="size-1.5 rounded-full bg-gold-soft" />
             </span>
             <div className="flex items-center gap-3 sm:gap-6">
-              <div data-wm-lotus className="w-[2.4rem] shrink-0 sm:w-[4rem]">
+              <div data-wm-lotus className="w-8 shrink-0 sm:w-[4rem]">
                 <Lotus base sw={1.4} className="w-full" />
               </div>
-              <div className="flex font-display text-[clamp(1.5rem,5.4vw,5.4rem)] uppercase leading-none tracking-[0.12em] text-ivory">
+              <div className="flex font-display text-[clamp(1.05rem,4.4vw,5.4rem)] uppercase leading-none tracking-[0.1em] sm:tracking-[0.12em] text-ivory">
                 {chars.map((c, i) => (
                   <span key={i} className="overflow-hidden py-[0.1em]">
                     <span data-wm-char className="inline-block">
@@ -166,7 +166,7 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-            <span className="flex flex-1 items-center gap-3">
+            <span className="hidden flex-1 items-center gap-3 sm:flex">
               <span data-wm-dot className="size-1.5 rounded-full bg-gold-soft" />
               <span data-wm-line className="h-px flex-1 origin-right bg-gold-soft/40" />
             </span>

@@ -19,7 +19,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       role="radio"
       aria-checked={active}
       onClick={onClick}
-      className={`rounded-full border px-4 py-2 text-sm transition-colors duration-500 ease-silk ${
+      className={`min-h-11 rounded-full border px-4 py-2 text-sm transition-colors duration-500 ease-silk ${
         active ? "border-gold-soft bg-ivory text-forest" : "border-ivory/25 text-ivory/85 hover:border-ivory/60"
       }`}
     >
@@ -176,7 +176,7 @@ export default function Contact() {
               </button>
               <p className="text-[0.8rem] leading-snug text-ivory/60">
                 Não peço informações sobre a sua saúde por aqui. Seus dados servem apenas para o retorno do contato.{" "}
-                <Link to="/privacidade" className="underline underline-offset-4">
+                <Link to="/privacidade" className="inline-block py-2 underline underline-offset-4">
                   Política de privacidade
                 </Link>
               </p>

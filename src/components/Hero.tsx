@@ -206,9 +206,9 @@ export default function Hero() {
       style={{ background: "linear-gradient(180deg, #f5efe6 0%, #efe6d8 100%)" }}
     >
       <GhostLotus className="-right-[18%] -top-[6%] -z-10 h-[46rem] w-[56rem] lg:-right-[8%]" />
-      <div className="container-site grid lg:grid-cols-2 lg:grid-rows-[1fr_auto] lg:gap-x-10">
+      <div className="container-site grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 lg:grid-rows-[1fr_auto] lg:gap-x-10">
         {/* Texto */}
-        <div data-hero-text className="relative lg:self-center">
+        <div data-hero-text className="relative min-w-0 lg:self-center">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-bronze">
             <span data-hero-in data-hero-eyeline className="h-px w-8 bg-current opacity-60 sm:w-14" />
             <span data-hero-in data-hero-eyebrow className="flex flex-wrap items-center gap-x-3 text-xs font-medium uppercase tracking-[0.3em]">
@@ -253,7 +253,7 @@ export default function Hero() {
               </WhatsAppButton>
             </div>
             <div data-hero-in data-hero-cta>
-              <HashLink to="#processo" className="u-link text-[1rem] font-medium text-forest">
+              <HashLink to="#processo" className="u-link inline-flex min-h-11 items-center text-[1rem] font-medium text-forest">
                 {hero.secondary}
               </HashLink>
             </div>
@@ -266,7 +266,7 @@ export default function Hero() {
         </div>
 
         {/* Foto */}
-        <div data-hero-stage className="relative mx-auto mt-12 w-full max-w-[30rem] lg:mt-0 lg:ml-auto lg:mr-0 lg:max-w-[min(100%,30rem,calc((100svh-13rem)*0.8))] lg:self-center">
+        <div data-hero-stage className="relative mx-auto mt-12 w-full min-w-0 max-w-[30rem] lg:mt-0 lg:ml-auto lg:mr-0 lg:max-w-[min(100%,30rem,calc((100svh-13rem)*0.8))] lg:self-center">
           <div data-hero-portrait className="@container relative aspect-[4/5] [--arc-d:0.75rem] sm:[--arc-d:1.25rem] lg:[--arc-d:1.5rem]">
             <div
               data-hero-in
@@ -304,7 +304,7 @@ export default function Hero() {
 
           </div>
 
-            <ul className="no-scrollbar -mx-5 mt-10 flex snap-x gap-4 overflow-x-auto px-5 pb-4 lg:absolute lg:-bottom-8 lg:-left-6 lg:mx-0 lg:mt-0 lg:block lg:w-[18.5rem] lg:space-y-3 lg:overflow-visible lg:px-0 lg:pb-0 xl:-left-16">
+            <ul className="no-scrollbar -mx-5 mt-10 flex scroll-px-5 snap-x gap-4 overflow-x-auto px-5 pb-4 lg:absolute lg:-bottom-8 lg:-left-6 lg:mx-0 lg:mt-0 lg:block lg:w-[18.5rem] lg:space-y-3 lg:overflow-visible lg:px-0 lg:pb-0 xl:-left-16">
               {heroCards.map((t, i) => (
                 <li
                   key={t.slug}

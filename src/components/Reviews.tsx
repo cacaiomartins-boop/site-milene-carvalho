@@ -146,7 +146,7 @@ export default function Reviews() {
           type="button"
           aria-pressed={paused}
           onClick={toggle}
-          className="inline-flex items-center gap-2 self-start text-sm font-medium text-forest sm:self-auto"
+          className="inline-flex min-h-11 items-center gap-2 self-start text-sm font-medium text-forest sm:self-auto"
         >
           <span className="grid size-9 place-items-center rounded-full border border-forest/30">
             {paused ? (

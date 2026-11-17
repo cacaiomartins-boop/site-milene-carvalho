@@ -4,11 +4,11 @@ import { clinic } from "../data/clinic";
 /** Wordmark em texto: lótus + nome em maiúsculas + profissão. */
 export function Wordmark({ compact = false, noLotus = false, className = "" }: { compact?: boolean; noLotus?: boolean; className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-3 leading-none ${className}`}>
-      {!noLotus && <Lotus base={false} sw={compact ? 7 : 6} className={compact ? "h-9 w-auto" : "h-8 w-auto"} />}
+    <span className={`inline-flex items-center gap-2.5 leading-none sm:gap-3 ${className}`}>
+      {!noLotus && <Lotus base={false} sw={compact ? 7 : 6} className={compact ? "h-9 w-auto" : "h-7 w-auto sm:h-8"} />}
       <span className="flex flex-col gap-1.5">
         <span className="overflow-hidden">
-          <span data-logo-word className="block font-display text-[1.3rem] font-medium uppercase tracking-[0.26em] whitespace-nowrap sm:text-[1.35rem]">
+          <span data-logo-word className="block font-display text-[1rem] font-medium uppercase tracking-[0.2em] whitespace-nowrap min-[420px]:text-[1.15rem] sm:text-[1.35rem] sm:tracking-[0.26em]">
             {clinic.name}
           </span>
         </span>

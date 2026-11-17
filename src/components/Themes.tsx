@@ -219,7 +219,7 @@ export default function Themes() {
         <ul
           ref={listRef}
           data-card-list
-          className="no-scrollbar flex snap-x gap-5 overflow-x-auto px-5 pb-8 sm:px-10"
+          className="no-scrollbar flex scroll-px-5 snap-x gap-5 overflow-x-auto px-5 pb-8 sm:scroll-px-10 sm:px-10"
         >
           {topics.map((t) => (
             <li key={t.slug} data-card className="@container relative h-[33rem] w-[min(84vw,22rem)] shrink-0 snap-start lg:w-[24rem]">
@@ -249,7 +249,7 @@ export default function Themes() {
                     </WhatsAppButton>
                     <Link
                       to={`/terapia/${t.slug}`}
-                      className="u-link mt-3 inline-flex items-center gap-2 text-sm font-medium text-forest"
+                      className="u-link mt-1 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-forest"
                     >
                       Saiba mais <ArrowIcon className="size-4" />
                     </Link>
