@@ -1,4 +1,4 @@
-import { Wind, CloudSun, HeartHandshake, Repeat, Activity, Globe, Video, type LucideIcon } from "lucide-react";
+import { Wind, CloudSun, HeartHandshake, Repeat, Activity, Globe, Video, Flame, Shapes, ClipboardCheck, type LucideIcon } from "lucide-react";
 
 export const topicIcon: Record<string, LucideIcon> = {
   ansiedade: Wind,
@@ -7,6 +7,9 @@ export const topicIcon: Record<string, LucideIcon> = {
   "compulsoes-e-habitos": Repeat,
   "saude-e-doenca-cronica": Activity,
   "brasileiros-no-exterior": Globe,
+  burnout: Flame,
+  "transtornos-de-personalidade": Shapes,
+  "avaliacao-bariatrica": ClipboardCheck,
   "terapia-online": Video,
 };
 

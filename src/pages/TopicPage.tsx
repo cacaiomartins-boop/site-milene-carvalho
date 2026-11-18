@@ -14,7 +14,7 @@ export default function TopicPage() {
   const t = topics.find((x) => x.slug === slug);
   const { open, toggle } = useOpenSet([0]);
   usePageMeta(
-    t ? `Terapia para ${t.pageTitle.toLowerCase()} em ${clinic.city} · ${clinic.name}` : clinic.name,
+    t ? `${t.metaTitle ?? `Terapia para ${t.pageTitle.toLowerCase()} em ${clinic.city}`} · ${clinic.name}` : clinic.name,
     t?.metaDescription ?? "",
   );
   if (!t) return <Navigate to="/" replace />;

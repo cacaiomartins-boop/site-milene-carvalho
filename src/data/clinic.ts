@@ -129,6 +129,8 @@ export interface Topic {
   approach: string;
   faq: { q: string; a: string }[];
   metaDescription: string;
+  /** Título da aba/Google; se vazio, usa "Terapia para {pageTitle} em {cidade}". */
+  metaTitle?: string;
 }
 
 export const topics: Topic[] = [
@@ -325,8 +327,106 @@ export const topics: Topic[] = [
       "Terapia online para brasileiros que moram no exterior, com Milene Carvalho, psicóloga (TCC). Atendimento em português.",
   },
   {
-    slug: "terapia-online",
+    slug: "burnout",
     number: "07",
+    label: "Burnout",
+    question: "Você está *exausto de tanto dar conta?*",
+    description:
+      "Cansaço que o descanso não resolve, irritação, a sensação de estar no limite no trabalho. A terapia ajuda a entender o que esgotou você e a reorganizar a relação com a rotina.",
+    button: "Conversar sobre isso",
+    pageTitle: "Burnout",
+    heroTitle: ["Cansaço que não passa", "*merece atenção.*"],
+    intro:
+      "O burnout é o esgotamento ligado, muitas vezes, ao trabalho e à cobrança constante. Na terapia, você tem um espaço para entender o que levou até esse limite, recuperar recursos e construir limites mais saudáveis.",
+    recognize: [
+      "Acordo cansado e termino o dia sem energia para mais nada.",
+      "Perdi o entusiasmo pelo trabalho e me sinto cada vez mais distante.",
+      "Tenho dificuldade de me desligar, mesmo nas folgas.",
+      "Fico irritado ou ansioso com coisas que antes eu levava com leveza.",
+    ],
+    paths: [
+      { title: "Reconhecer o limite", text: "Entendemos como o esgotamento foi se instalando e o que sustenta a sobrecarga." },
+      { title: "Rever cobranças e limites", text: "Você identifica pensamentos e hábitos que levam ao excesso e treina novas formas de se posicionar." },
+      { title: "Recuperar o equilíbrio", text: "Aos poucos, constrói uma rotina com mais descanso, sentido e cuidado consigo." },
+    ],
+    approach:
+      "Na TCC, olhamos para a relação entre pensamentos, emoções e comportamentos que mantêm o esgotamento, com sessões estruturadas e objetivos combinados. Quando necessário, indico uma avaliação médica complementar.",
+    faq: [
+      { q: "Burnout é o mesmo que estresse?", a: "Não exatamente. O estresse costuma ser passageiro, já o burnout é um esgotamento mais profundo e prolongado. Na primeira conversa entendemos o que você está vivendo." },
+      { q: "Preciso me afastar do trabalho para fazer terapia?", a: "Não necessariamente. Essa decisão depende de cada caso e pode envolver também a avaliação de um médico. Conversamos sobre isso ao longo do processo." },
+    ],
+    metaDescription:
+      "Terapia para burnout e esgotamento em Brasília e online com Milene Carvalho, psicóloga (TCC). Converse pelo WhatsApp.",
+  },
+  {
+    slug: "transtornos-de-personalidade",
+    number: "08",
+    label: "Transtornos de personalidade",
+    question: "Os mesmos padrões *se repetem na sua vida?*",
+    description:
+      "Emoções intensas, relações instáveis, dificuldade de lidar com a própria imagem. Um acompanhamento estruturado para entender esses padrões e aprender novas formas de lidar com eles.",
+    button: "Conversar sobre isso",
+    pageTitle: "Transtornos de personalidade",
+    heroTitle: ["Padrões que se repetem", "*podem ser entendidos.*"],
+    intro:
+      "Algumas pessoas vivem emoções muito intensas, relações instáveis ou sentem que se comportam do mesmo jeito mesmo querendo mudar. A psicoterapia oferece um acompanhamento ético e constante para compreender esses padrões e construir mais estabilidade.",
+    recognize: [
+      "Minhas emoções mudam rápido e me pegam de surpresa.",
+      "Minhas relações têm muitos altos e baixos.",
+      "Tenho medo de ser abandonado ou rejeitado.",
+      "Me comporto de formas que depois me arrependo, e não sei como mudar.",
+    ],
+    paths: [
+      { title: "Construir uma relação de confiança", text: "Um vínculo estável e respeitoso com a terapeuta é a base do trabalho." },
+      { title: "Entender os padrões", text: "Mapeamos gatilhos, pensamentos e reações que se repetem, sem julgamento." },
+      { title: "Desenvolver novas habilidades", text: "Você pratica formas de regular emoções, de se relacionar e de tomar decisões com mais segurança." },
+    ],
+    approach:
+      "O trabalho é estruturado e feito com constância, com objetivos combinados e foco em habilidades práticas. Só um profissional pode avaliar o diagnóstico, e a terapia pode caminhar junto com o acompanhamento médico, quando necessário.",
+    faq: [
+      { q: "Preciso de um diagnóstico para começar?", a: "Não. Você pode procurar terapia pelas dificuldades que vive, sem ter um diagnóstico fechado. Conversamos sobre o que você sente e como posso ajudar." },
+      { q: "Transtorno de personalidade tem tratamento?", a: "A psicoterapia é um dos caminhos indicados para essas questões. Não prometo prazos ou resultados, mas posso garantir um acompanhamento ético, cuidadoso e sem julgamentos." },
+    ],
+    metaDescription:
+      "Psicoterapia para transtornos de personalidade em Brasília e online com Milene Carvalho, psicóloga (TCC).",
+  },
+  {
+    // TODO: confirmar com a Milene como funciona a avaliação (nº de encontros, relatório, exigências do hospital/convênio)
+    slug: "avaliacao-bariatrica",
+    number: "09",
+    label: "Avaliação para cirurgia bariátrica",
+    question: "Vai fazer a cirurgia *e precisa da avaliação psicológica?*",
+    description:
+      "Avaliação psicológica pré-operatória, feita com cuidado e clareza, e acompanhamento antes e depois da cirurgia, quando você quiser.",
+    button: "Agendar minha avaliação",
+    pageTitle: "Avaliação para cirurgia bariátrica",
+    metaTitle: "Avaliação psicológica para cirurgia bariátrica em Brasília",
+    heroTitle: ["Um passo importante,", "*bem acompanhado.*"],
+    intro:
+      "A avaliação psicológica é uma etapa do preparo para a cirurgia bariátrica. Nela, conversamos sobre a sua história, a sua relação com a comida e as suas expectativas, para que você chegue ao procedimento com mais segurança.",
+    recognize: [
+      "Estou me preparando para a cirurgia bariátrica e preciso da avaliação psicológica.",
+      "Quero entender como a minha relação com a comida pode influenciar o processo.",
+      "Tenho dúvidas e receios sobre as mudanças que vêm depois da cirurgia.",
+      "Já fiz a cirurgia e preciso de apoio na adaptação.",
+    ],
+    paths: [
+      { title: "Conversar com calma", text: "Entrevista para conhecer a sua história, a sua rotina e as suas expectativas." },
+      { title: "Avaliar com critério", text: "A avaliação segue as normas éticas da psicologia e respeita as exigências da sua equipe médica." },
+      { title: "Seguir com apoio", text: "Se fizer sentido, você pode continuar em psicoterapia antes e depois da cirurgia." },
+    ],
+    approach:
+      "A avaliação é um processo técnico e ético, que não é uma prova a ser vencida. Ao final, você recebe a devolutiva e, quando indicado, o documento solicitado pela equipe médica. Não prometo aprovação, e sim uma avaliação cuidadosa e respeitosa.",
+    faq: [
+      { q: "Você garante a aprovação para a cirurgia?", a: "Não. A avaliação é técnica e independente. Meu compromisso é com uma avaliação cuidadosa, ética e sem julgamentos." },
+      { q: "Quantos encontros são necessários?", a: "Depende do caso e das exigências da sua equipe médica. Converse comigo pelo WhatsApp que combinamos o formato e o tempo." },
+    ],
+    metaDescription:
+      "Avaliação psicológica para cirurgia bariátrica em Brasília e online com Milene Carvalho, psicóloga (TCC). Converse pelo WhatsApp.",
+  },
+  {
+    slug: "terapia-online",
+    number: "10",
     label: "Terapia online",
     question: "Cuidado de verdade, *de onde você estiver.*",
     description:
